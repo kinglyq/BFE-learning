@@ -1,0 +1,56 @@
+body{
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* .wrapper{
+    border-top: 1px solid transparent;
+    height: 100%;
+} */
+
+.content{
+    box-sizing: border-box;
+    float: right;
+    width: 78%;
+}
+
+.content::after{
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.list-desc{
+    padding: 0;
+}
+
+.title{
+    float: left;
+    width: 20%;
+    background-color: rgb(101, 165, 250);
+    text-align: center;
+    color: whitesmoke;
+    height: 657.175px;
+}
+
+.list-desc li{
+    display: inline;
+    margin-right: 25px;
+    
+}
+
+.list-desc:last-child{
+    margin-right: 0;
+}
+
+.desc-q{
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.desc-val{
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 1rem;
+}
