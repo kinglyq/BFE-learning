@@ -1,7 +1,10 @@
+@import './base.css';
+
 body{
     width: 90%;
     max-width: 1000px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 /* .wrapper{
@@ -9,21 +12,9 @@ body{
     height: 100%;
 } */
 
-.content{
-    box-sizing: border-box;
-    float: right;
-    width: 78%;
-}
-
-.content::after{
-    display: block;
-    content: '';
-    clear: both;
-}
-
-.list-desc{
-    padding: 0;
-}
+/* .wrapper{    
+    border: 1px solid black;
+} */
 
 .title{
     float: left;
@@ -31,26 +22,19 @@ body{
     background-color: rgb(101, 165, 250);
     text-align: center;
     color: whitesmoke;
-    height: 657.175px;
+    height: 850px;
+}
+.content{
+    box-sizing: border-box;
+    /* float: right; */
+    width: 80%;
+    /* background-color: rgb(161, 202, 255); */
+    overflow: hidden;
+    padding-left: 2%;
 }
 
-.list-desc li{
-    display: inline;
-    margin-right: 25px;
-    
-}
-
-.list-desc:last-child{
-    margin-right: 0;
-}
-
-.desc-q{
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.desc-val{
-    display: inline-block;
-    margin-left: 10px;
-    font-size: 1rem;
+.content::after{
+    display: block;
+    content: '';
+    clear: both;
 }
