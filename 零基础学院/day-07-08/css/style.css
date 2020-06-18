@@ -1,0 +1,155 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+header{
+    width: 100%;    
+    background-color: #635454;
+}
+
+header nav{
+    width: 960px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.logo{
+    width: 50px;
+    float: left;
+    line-height: 50px;
+    color: #ffd700;
+}
+
+.list ul{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+.list ul li{
+    margin: 0;
+    padding: 0;
+    display: inline;
+    list-style: none;
+}
+
+.list ul li a{
+    display: inline-block;
+    width: 80px;
+    line-height: 50px;
+    text-align: center;
+    color: #fff;
+}
+
+.banner{
+    width: 100%;    
+    height: 250px;
+    position: relative;
+    background-color: #fff0f5;
+}
+
+.banner ul{
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 200px;
+    bottom: 10px;
+    display: inline;
+}
+
+.banner ul li{
+    display: inline;
+}
+
+.banner ul li a{
+    width: 30px;
+    text-align: center;
+    display: inline-block;
+    color: rgb(146, 230, 38);
+    background-color: #ffffff;
+}
+
+.banner ul li a.active{
+    background-color: #eee5e5;
+}
+
+main{
+    width: 100%;
+}
+
+main nav,main section{
+    width: 960px;
+    margin: 0 auto;
+}
+
+hr{
+    margin: 0;
+}
+
+main nav ul{
+    margin: 5px 0 0 0;
+    padding: 0;
+}
+
+main nav ul li{
+    display: inline-block;
+}
+
+main nav ul li a{
+    margin: 0;
+    width: 80px;
+    color: #2c2828;
+    line-height: 50px;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    background-color: lightcoral;
+}
+
+section{
+    display: flex;
+    flex: 200px;
+    flex-flow: row wrap;
+}
+
+section>article{
+    flex: 1 200px;
+    /* width: 200px; */
+    height: 200px;
+    padding: 80px;
+    color: #867878;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    background-color: #ffa07a;
+}
+
+footer{
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer>a{
+    display: block;
+    width: 80px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    border: 1px solid #ffa07a;
+}
+
+footer>a:first-child{
+    align-self: flex-start;
+    order: 1;
+}
