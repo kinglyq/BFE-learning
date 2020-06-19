@@ -1,0 +1,24 @@
+.list-desc{
+    padding: 0;
+}
+
+.list-desc li{
+    display: inline;
+    margin-right: 25px;
+    
+}
+
+.list-desc:last-child{
+    margin-right: 0;
+}
+
+.desc-q{
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.desc-val{
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 1rem;
+}
