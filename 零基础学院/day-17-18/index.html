@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title>第十七天到第十八天，“如果”可以“重来”</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        table td{
+            padding: 5px;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <input id="dec-number" type="number" placeholder="输入一个十进制非负整数">
+    <button id="trans-btn" onclick="dec2bin(document.getElementById('dec-number').value)">转化为二进制</button>
+    <p id="result">运算结果：</p>
+
+    <table>
+        <tbody id="t-body"></tbody>
+    </table>
+    
+    <script>
+
+        function dec2bin(decNumber) {
+            const result = document.getElementById("result");
+            let number = Number(decNumber);
+            if ((number + "" === "NaN") || (decNumber % 1 !== 0)) {
+                result.innerHTML = "运算结果：输入必须为一个非负整数";
+                return;
+            }
+            let bin = "";
+            let quotient = number;
+            while (true) {
+                let remainder = quotient % 2;
+                quotient = Math.floor(quotient / 2);
+                bin += remainder;
+                if (quotient < 1) {
+                    break;
+                }
+            }
+            result.innerHTML = "运算结果：" + bin.split("").reverse().toString().replace(/,/g, "");
+        }
+
+        document.getElementById("dec-number").onkeyup = (e) => {
+            if (e.keyCode === 13) {
+                dec2bin(document.getElementById('dec-number').value);
+            }
+        }
+
+        function nn() {
+            let tbody = "";
+            for (let i = 1; i < 10; i++) {
+                let row = "<tr>";
+                for (let j = 1; j < i + 1; j++) {
+                    row += "<td>" + j + " * " + i + " = " + (i * j) + "</td>";
+                }
+                row += "</tr>"
+                tbody += row;
+            }
+            document.getElementById("t-body").innerHTML = tbody;
+        }
+
+        nn();   
+
+    </script>
+</body>
+
+</html>
