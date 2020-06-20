@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title>第十九天：找到那个DOM</title>
+    <style>
+        /* a {
+            padding: 2px;
+            font-size: 14px;
+            color: #312d2d;
+            border-radius: 5px;
+            display: inline-block;
+            text-decoration: none;
+            border: 1px solid #bdbdbd;
+        }
+
+        ul li {
+            margin-bottom: 5px;
+        }
+
+        ul li:last-child {
+            margin-bottom: 0;
+        }
+
+        .item {
+            width: 80px;
+            height: inherit;
+            overflow: hidden;
+            text-align: left;
+            margin-right: 15px;
+            display: inline-block;
+            vertical-align: bottom;
+            text-overflow: ellipsis;
+        } */
+    </style>
+</head>
+
+<body>
+
+    <!-- <div>
+        <h1>My shopping list</h1>
+        <form action="#">
+            <label>
+                <span>Enter a new item</span>
+                <input type="text" name="item" id="item" autofocus>
+                <a href="javascript:void(0)" onclick="addItem()">Add item</a>
+            </label>
+        </form>
+        <ul></ul>
+    </div> -->
+
+    <div id="wrapper">
+        <div id="news-top" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>JS</span><a class="active" href="">Some Link2</a></li>
+                    <li><span>CSS</span><a href="">Some Link3</a></li>
+                    <li><span>JS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+        <div id="news-normal" class="section">
+            <h3>Some title</h3>
+            <div class="content">
+                <ul>
+                    <li><span>HTML</span><a href="">Some Link1</a></li>
+                    <li><span>HTML</span><a href="">Some Link2</a></li>
+                    <li><span>JS</span><a class="active" href="#">Some Link3</a></li>
+                    <li><span>CSS</span><a href="">Some Link4</a></li>
+                </ul>
+            </div>
+            <img src="">
+            <p class="">Some Text</p>
+        </div>
+    </div>
+
+    <script>
+
+        /* function addItem() {
+            let val = document.getElementById("item").value;
+            if (!val) {
+                return;
+            }
+            let list = document.querySelector("ul");
+            let item = document.createElement("li");
+
+            let span = document.createElement("span");
+            span.textContent = val;
+            span.className = "item"
+
+            let btn = document.createElement("a");
+            btn.href = "javascript:void(0)";
+            btn.innerText = "delete";
+            btn.onclick = (e) => {
+                item.parentNode.removeChild(item);
+            }
+
+            item.appendChild(span);
+            item.appendChild(btn);
+            list.appendChild(item);
+        } */
+
+        function getAllListItem() {
+            // 返回页面中所有li标签
+            return document.querySelectorAll("li");
+        }
+
+        function findAllHtmlSpanInOneSection(sectionId) {
+            // 返回某个section下所有span中内容为HTML的span标签
+            let spanHtml = [];
+            let sect = document.getElementsByClassName(sectionId);
+            for (let i = 0; i < sect.length; i++) {
+                let span = sect[i].querySelectorAll("span");
+                span.forEach((v, k, p) => {
+                    if (v.textContent === "HTML") {
+                        spanHtml.push(span[k]);
+                    }
+                })
+            }
+            return spanHtml;
+        }
+
+        function findListItem(sectionId, spanCont) {
+            // 返回某个section下，所有所包含span内容为spanCont的LI标签
+            let parentNodes = [];
+            let sect = document.getElementsByClassName(sectionId);
+            for (let i = 0; i < sect.length; i++) {
+                let span = sect[i].querySelectorAll("span");
+                span.forEach((v, k, p) => {
+                    if (v.textContent === spanCont) {
+                        parentNodes.push(span[k].parentNode);
+                    }
+                })
+            }
+            return parentNodes;
+        }
+
+        function getActiveLinkContent(sectionId) {
+            // 返回某个section下，class为active的链接中包含的文字内容
+            let content = [];
+            let sect = document.querySelectorAll("." + sectionId);
+            for (let i = 0; i < sect.length; i++) {
+                let a = sect[i].querySelectorAll("a");
+                a.forEach((v, k, p) => {
+                    if (a[k].className.indexOf("active") != -1) {
+                        content.push(a[k].textContent);
+                    }
+                })
+            }
+            return content;
+        }
+
+    </script>
+
+</body>
+
+</html>
