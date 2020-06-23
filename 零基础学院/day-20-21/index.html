@@ -7,6 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
     <title>第二十到第二十一天：让你和页面对话</title>
     <style>
+        .wrapper{
+            margin-top: 10px;
+        }
+
         .form {
             width: 240px;
         }
@@ -30,6 +34,12 @@
             height: 40px;
             border: 1px solid #000;
             cursor: pointer;
+        }
+
+        .smile{
+            border: 1px solid red;
+            width: 480px;
+            height: 480px;
         }
     </style>
 </head>
@@ -70,7 +80,7 @@
         </select>
     </fieldset>
 
-    <div style="margin-top: 10px;">
+    <div class="wrapper">
         <ul class="palette">
             <li style="background-color:crimson"></li>
             <li style="background-color:bisque"></li>
@@ -83,6 +93,11 @@
         </ul>
 
         <p class="color-picker"></p>
+    </div>
+
+    <div class="wrapper smile" id="smile" style="background: url('./images/erik_ce204002.jpg') no-repeat;background-position: right 0 top 0px;">
+
+        <button id="run">run</button>
     </div>
 
     <script>
@@ -136,6 +151,24 @@
                 e.stopPropagation();
             }
         }());
+
+        // let a = document.getElementById("e");
+        // a.style.backgroundPosition
+
+        (function(){
+            document.getElementById("run").onclick = (e) =>{
+                let pos = 0;
+                let smile = setInterval(() => {                    
+                    let div = document.getElementById("smile");
+                    pos -= 480;
+                    if(pos === -7680){
+                        pos = 0;
+                        // clearInterval(smile);
+                    }
+                    div.style.backgroundPosition = "right 0 top "+ pos +"px";
+                }, 100);
+            }
+        }())
 
     </script>
 
