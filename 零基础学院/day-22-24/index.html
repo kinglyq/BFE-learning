@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge,chrome=1">
+    <title>第二十二天到第二十四天：JavaScript里面的居民们</title>
+</head>
+
+<body>
+    <div id="code1">
+        <div>
+            <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label>
+            <input id="num-a" type="text">
+            <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label>
+            <input id="num-b" type="text">
+        </div>
+        <div id="operate">
+            <button id="a">判断当前选中的输入框输入内容是否为数字</button>
+            <button id="b">把 A 四舍五入为 B 个小数位数的数字</button>
+            <button id="c">当前选中数字的绝对值</button>
+            <button id="d">对当前选中的数字进行上舍入</button>
+            <button id="e">对当前选中的数字进行下舍入</button>
+            <button id="f">把当前选中的数字四舍五入为最接近的整数</button>
+            <button id="g">返回 A 和 B 中的最高值</button>
+            <button id="h">返回 A 和 B 中的最低值</button>
+        </div>
+        <p id="result">结果：</p>
+        <button id="clean">clean</button>
+    </div>
+
+    <script>
+        (function code1() {
+            document.getElementById("operate").addEventListener("click", numeration);
+            let result = document.getElementById("result");
+            function numeration(e) {
+                let radio = document.querySelectorAll("#code1 input[type='radio']:checked");
+                let id = e.target.id;
+                let num_a = document.getElementById("num-a").value;
+                let num_b = document.getElementById("num-b").value;
+                let radioId, valTarget;
+                switch (id) {
+                    case "a":
+                    case "c":
+                    case "d":
+                    case "e":
+                    case "f":
+                        radioId = radio[0].id;
+                        valTarget;
+                        if (radioId === "radio-a") {
+                            valTarget = num_a;
+                        } else {
+                            valTarget = num_b;
+                        }
+                        if (radio.length === 0) {
+                            result.textContent = "结果：请选择一个输入框！";
+                            return;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                switch (id) {
+                    case "a":
+                        // 判断当前选中的输入框输入内容是否为数字
+                        if (Number(valTarget) + "" === "NaN") {
+                            result.innerText = "结果：否";
+                        } else {
+                            result.innerText = "结果：是";
+                        }
+                        break;
+                    case "b":
+                        // 把 A 四舍五入为 B 个小数位数的数字
+                        result.innerText = "结果：" + Number(num_a).toFixed(num_b);
+                        break;
+                    case "c":
+                        // 当前选中数字的绝对值
+                        result.innerText = "结果：" + Math.abs(valTarget);
+                        break;
+                    case "d":
+                        // 对当前选中的数字进行上舍入
+                        result.innerText = "结果：" + Math.ceil(valTarget);
+                        break;
+                    case "e":
+                        // 对当前选中的数字进行下舍入
+                        result.innerText = "结果：" + Math.floor(valTarget);
+                        break;
+                    case "f":
+                        // 把当前选中的数字四舍五入为最接近的整数
+                        result.innerText = "结果：" + Math.round(valTarget);
+                        break;
+                    case "g":
+                        // 返回 A 和 B 中的最高值
+                        result.innerText = "结果：" + Math.max(num_a, num_b);
+                        break;
+                    case "h":
+                        // 返回 A 和 B 中的最低值
+                        result.innerText = "结果：" + Math.min(num_a, num_b);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            document.getElementById("clean").onclick = (e) => {
+                result.textContent = "结果：";
+            }
+        }());
+
+    </script>
+</body>
+
+</html>
